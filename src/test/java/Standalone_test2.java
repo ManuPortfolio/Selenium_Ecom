@@ -33,6 +33,7 @@ public class Standalone_test2 {
         Cart_Page cartpage = productcatlogue.addToCart(Productname);
         String cartText = cartpage.CartText();
         Assert.assertEquals(cartText, "My Cart");
+        System.out.println(cartText);
 
 
         Boolean match = cartpage.VerifyProductDisplay(Productname);
