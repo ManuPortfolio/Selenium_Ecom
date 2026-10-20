@@ -45,6 +45,7 @@ public class Standalone_test2 {
 
                 String congetText = confirmationPage.getTextorder();
         Assert.assertEquals(congetText, "THANKYOU FOR THE ORDER.");
+        System.out.println(congetText);
         driver.close();
 
     }
