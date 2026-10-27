@@ -17,14 +17,12 @@ public class AbstractCom {
         this.driver = driver;
     }
 
-    public void goToCartpage(){
-
-    }
-
     public void Waitforelementtoappear(By findBy){
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
         }
+
+
 
         public void Waitforelementtodissapear(WebElement ele) throws InterruptedException {
 

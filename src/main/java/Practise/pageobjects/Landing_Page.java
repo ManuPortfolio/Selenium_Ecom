@@ -24,12 +24,22 @@ public class Landing_Page extends AbstractCom {
     @FindBy(id = "login")
     WebElement submit;
 
+    @FindBy(css = "[class*='flyInOut']")
+    WebElement errorlogin;
+
+
+
     public Productcatlogue Login(String email, String password) {
         userEmail.sendKeys(email);
         userPassword.sendKeys(password);
         submit.click();
         Productcatlogue productcatlogue = new Productcatlogue(driver);
         return productcatlogue;
+    }
+
+    public String getErrorMessage() {
+
+        return errorlogin.getText();
     }
 
     public void goTo(){
