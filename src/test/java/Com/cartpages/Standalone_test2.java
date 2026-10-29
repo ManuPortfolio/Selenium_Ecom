@@ -38,4 +38,10 @@ public class Standalone_test2 extends BaseTest {
         driver.close();
 
     }
+
+    @Test(dependsOnMethods = "Demo")
+    public void orderHistory(){
+
+        Productcatlogue productcatlogue = landingP.Login("risom21901@hudzer.com", "Qwe@1234");
+    }
 }

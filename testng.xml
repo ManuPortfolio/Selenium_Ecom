@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Selenium Test Suite">
+
+    <test name="Cart Page Tests">
+        <classes>
+            <class name="Com.cartpages.Standalone_test2"/>
+        </classes>
+    </test>
+
+    <test name="Error Validation Test">
+        <classes>
+            <class name="Com.cartpages.ErrorValidationsTest"/>
+        </classes>
+    </test>
+
+</suite>
+
+

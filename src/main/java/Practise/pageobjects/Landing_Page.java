@@ -38,7 +38,7 @@ public class Landing_Page extends AbstractCom {
     }
 
     public String getErrorMessage() {
-
+        Waitforelementerrortoappear(errorlogin);
         return errorlogin.getText();
     }
 
