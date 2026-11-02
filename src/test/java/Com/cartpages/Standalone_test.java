@@ -40,6 +40,7 @@ public class Standalone_test {
 
         WebElement Prod = Cards.stream().filter(Card -> Card.findElement(By.cssSelector("b")).
                 getText().equals(Productname)).findFirst().orElse(null);
+
         Prod.findElement(By.cssSelector("button[class = 'btn w-10 rounded']")).click();
 
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));

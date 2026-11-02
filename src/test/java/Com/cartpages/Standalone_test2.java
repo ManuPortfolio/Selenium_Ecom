@@ -9,11 +9,10 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class Standalone_test2 extends BaseTest {
-
+    String Productname = "ZARA COAT 3";
     @Test
     public void Demo() throws InterruptedException {
 
-        String Productname = "ZARA COAT 3";
         Productcatlogue productcatlogue = landingP.Login("risom21901@hudzer.com", "Qwe@1234");
         String loginconfirm = productcatlogue.LoginAssert();
         Assert.assertEquals(loginconfirm, "AUTOMATION");
@@ -43,5 +42,9 @@ public class Standalone_test2 extends BaseTest {
     public void orderHistory(){
 
         Productcatlogue productcatlogue = landingP.Login("risom21901@hudzer.com", "Qwe@1234");
+        Orderpage orderpage = productcatlogue.goToorderpage();
+        Assert.assertTrue(orderpage.VerifyOrderDisplay(Productname));
+        System.out.println(orderpage.VerifyOrderDisplay(Productname));
+
     }
 }

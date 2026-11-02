@@ -36,9 +36,9 @@ public class AbstractCom {
     }
 
 
-    public Orderpage oderclickpage(){
+    public Orderpage goToorderpage() {
         orderHeader.click();
-        Orderpage orderpage = new Orderpage();
+        Orderpage orderpage = new Orderpage(driver);
         return orderpage;
     }
 

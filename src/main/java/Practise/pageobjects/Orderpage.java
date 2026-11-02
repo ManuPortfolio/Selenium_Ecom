@@ -11,28 +11,21 @@ import java.util.List;
 public class Orderpage extends AbstractCom {
 
     WebDriver driver;
-    public Orderpage() {
-        super(driver);
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
-
-
 
     @FindBy(css = "tr td:nth-child(3)")
     List<WebElement> productNames;
 
-    @FindBy(css = ".totalRow button")
-    WebElement checkOutBtn;
+    public Orderpage(WebDriver driver) {
+        super(driver);
+        this.driver = this.driver;
 
-    @FindBy(xpath = "/html[1]/body[1]/app-root[1]/app-profile[1]/div[1]/div[1]/h1[1]")
-    WebElement cartTitleText;
-
-    public Boolean VerifyOrderDisplay(String Productname){
-        Boolean match = productNames.stream().anyMatch(cartproduct -> cartproduct.getText().equalsIgnoreCase(Productname));
-        return match ;
     }
 
+    public Boolean VerifyOrderDisplay(String Productname) {
+        Boolean match = productNames.stream()
+                .anyMatch(product -> product.getText()
+                        .equalsIgnoreCase(Productname));
 
-
+        return match;
+    }
 }
