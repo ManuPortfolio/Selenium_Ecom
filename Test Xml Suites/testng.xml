@@ -5,6 +5,8 @@
        parallel="tests"
        thread-count="2">
 
+
+
     <test name="Cart Page Tests">
         <classes>
             <class name="Com.cartpages.Standalone_test2"/>

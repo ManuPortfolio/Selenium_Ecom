@@ -21,10 +21,12 @@ public class BaseTest {
         return driver;
 
     }
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public Landing_Page launchApplication(){
+        System.out.println("===== BEFORE METHOD STARTED =====");
         driver = IntializeDriver();
         landingP = new Landing_Page(driver);
+        System.out.println("Initialized landingP: " + landingP);
         landingP.goTo();
         return landingP;
     }
