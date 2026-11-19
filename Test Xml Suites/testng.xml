@@ -3,8 +3,12 @@
 
 <suite name="Selenium Test Suite"
        parallel="tests"
-       thread-count="2">
+       thread-count="2"
+>
 
+    <listeners>
+        <listener class-name="BaseTest.Listeners"/>
+    </listeners>
 
 
     <test name="Cart Page Tests">

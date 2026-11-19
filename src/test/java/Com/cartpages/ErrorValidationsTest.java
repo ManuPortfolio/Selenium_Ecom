@@ -16,8 +16,11 @@ public class ErrorValidationsTest extends BaseTest {
 
         String Productname = "ZARA COAT 3";
         Productcatlogue productcatlogue = landingP.Login("risom21901@hudzer.com", "Qwe@");
-        Assert.assertEquals("Incorrect email or password.", landingP.getErrorMessage());
+        Assert.assertEquals("Incorrect email  password.", landingP.getErrorMessage());
         System.out.println("Login Errror Done");
+
+        // for parallel testing use this = parallel="tests"
+        //       thread-count="2"
     }
 
     @Test

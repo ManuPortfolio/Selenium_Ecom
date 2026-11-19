@@ -4,19 +4,24 @@ import Test.resources.ExtentReportsNG;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class Listeners implements ITestListener {
+import java.io.IOException;
+
+public class Listeners extends BaseTest implements ITestListener {
 
     ExtentTest test;
     ExtentReports extent;
+
     @Override
     public void onTestStart(ITestResult result) {
         ITestListener.super.onTestStart(result);
 
       test =  extent.createTest(result.getMethod().getMethodName());
+
     }
 
     @Override
@@ -29,7 +34,23 @@ public class Listeners implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         ITestListener.super.onTestFailure(result);
-        test.log(Status.FAIL,"Test Failed");
+        test.fail(result.getThrowable());
+
+       /* try {
+            driver = (WebDriver) result.getTestClass().getRealClass().getField("driver")
+                    .get(result.getInstance());
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }*/
+
+        String filepath = null;
+        try {
+            filepath = getScreenShot(result.getMethod().getMethodName());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        test.addScreenCaptureFromPath(filepath,result.getMethod().getMethodName());
+
     }
 
     @Override
@@ -52,11 +73,13 @@ public class Listeners implements ITestListener {
     @Override
     public void onStart(ITestContext context) {
         ITestListener.super.onStart(context);
+
     }
 
     @Override
     public void onFinish(ITestContext context) {
         ITestListener.super.onFinish(context);
+        extent.flush();
     }
 
 

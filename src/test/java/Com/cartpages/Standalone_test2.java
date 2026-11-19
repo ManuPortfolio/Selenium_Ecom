@@ -55,16 +55,6 @@ public class Standalone_test2 extends BaseTest {
 
     }
 
-    public String getScreenShot(String testCasename) throws IOException {
-        TakesScreenshot ts = (TakesScreenshot)driver;
-        File screenshot = ts.getScreenshotAs(OutputType.FILE);
-        File file = new File(System.getProperty("user.dir") + "\\screenshots\\" + testCasename + ".png");
-        FileUtils.copyFile(file, screenshot);
-        return System.getProperty("user.dir") + "\\screenshots\\" + testCasename + ".png";
-
-    }
-
-
 
     @DataProvider
     public Object[][] getData1() throws IOException {

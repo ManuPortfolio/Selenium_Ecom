@@ -4,6 +4,8 @@ import Practise.pageobjects.Landing_Page;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -41,6 +43,15 @@ public class BaseTest {
         });
         return data;
 
+
+    }
+
+    public String getScreenShot(String testCasename) throws IOException {
+        TakesScreenshot ts = (TakesScreenshot)driver;
+        File screenshot = ts.getScreenshotAs(OutputType.FILE);
+        File file = new File(System.getProperty("user.dir") + "\\screenshots\\" + testCasename + ".png");
+        FileUtils.copyFile(file, screenshot);
+        return System.getProperty("user.dir") + "\\screenshots\\" + testCasename + ".png";
 
     }
 
